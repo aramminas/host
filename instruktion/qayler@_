@@ -1,0 +1,91 @@
+1)mer www papkayum sarqum enq sayti anunov papka
+sudo mkdir -p / var / www / name   (name= papkayi anun@ sayti)
+
+2)talis enq nran permishnner
+
+sudo chown -R developer:www-data /var/www     				 () ///var/www/saytneme
+sudo chmod -R g+rwX /var/www
+
+
+sudo chown -R developer:developer /var/www
+
+3)sarqum enq mer index.php fayl@
+
+sudo vim /var/www/ name /index.php
+(grum enq html kod@ ev seve enq anum)
+
+4) grum enq inch vor test nra mej
+
+5)copy enq anum default config fayl@
+
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/ example.com .conf
+
+5.1) bacum enq nor sarqats fayl@
+
+sudo gedit /etc/apache2/sites-available/ example.com .conf
+
+6)katarum enq config fayli mej mer popoxutyunner@ 
+(sexmum enq "i" ,vor karoxananq grel)
+<VirtualHost *:80>
+   ServerAdmin test@test.loc
+   ServerName test.loc               			 --//
+   ServerAlias www.test.loc           			--//
+   DocumentRoot /var/www/test				--//
+   ErrorLog ${APACHE_LOG_DIR}/error.log
+   CustomLog ${APACHE_LOG_DIR}/access.log combined
+	<Directory "/var/www/test">  			 --//
+	    AllowOverride All
+	</Directory>
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+//----
+seve enq anum :wq  (sexmum enq Esc,heto : heto wq ev enter)
+//---
+7)nor conf fayl@ ashxatacnum enq
+
+sudo a2ensite test.loc.conf 
+
+8)apach@ restart enq anum
+
+sudo service apache2 restart
+
+9)avelacnum enq mer nor kayq@ hosteri cucakum
+
+sudo vim  /etc/hosts
+sudo gedit /etc/hosts
+
+a) bacum e fayl@ 
+
+127.0.0.1 test.loc
+127.0.1.1  www.test.loc
+
+10) popoxum enq git-i mej 
+
+config fayli mej petq e avelacnel			//mer nor sayti papkayi mej
+[user]							//config fayl@ tesnelu hamar (ctrl+h)
+	name ="Aram Minasyan"				//avelacnum enq hetevyal toxer@
+	email ="aram.minasyan@esterox.am"
+
+11) ev fayl@ sev aneluc heto mez mot peqe ashxati nor kayq@ 
+
+test.loc/ hasceovs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
